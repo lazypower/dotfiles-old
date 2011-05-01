@@ -1,0 +1,2 @@
+export EDITOR=gedit
+export PATH=$PATH:~/bin:~/bin/scripts
