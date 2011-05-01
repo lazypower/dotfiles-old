@@ -43,4 +43,4 @@ BMAGENTA='\e[45m'   # Purple
 BCYAN='\e[46m'   # Cyan
 BWHITE='\e[47m'   # White
 
-PS1="\n\u:(\n)\w \$\[$NO_COLOR\] \n↦ "
+PS1="\n\u:(\h)\w \$\[$NO_COLOR\] \n↦ "
