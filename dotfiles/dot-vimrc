@@ -1,0 +1,19 @@
+set number
+colorscheme molokai
+
+map <F5> :call CompileRunGcc()<CR>
+map <F8> : call CompileGcc()<CR>
+map <C-n> : NERDTreeToggle<CR>
+
+
+func! CompileRunGcc()
+  exec "w" 
+  exec "!g++ % -o %< "
+  exec "i" 
+endfunc
+
+func! CompileGcc()
+  exec "w"
+  exec "!g++ % -o %< && IF EXIST %<"
+  exec "i"
+endfunc
