@@ -1,0 +1,11 @@
+section: screens
+	Desktop:
+	flatline:
+end
+section: links
+	Desktop:
+	   right = flatline
+
+	flatline:
+	   left = Desktop
+end
