@@ -41,4 +41,5 @@ if [ -e "~/.bashrc" ] then
     mv ~/.bashrc ~/bashrc.old
 fi
 
-ln -s ~/.bashrc $DIRECTORY/../dotfiles/bashrc 
+ln -s ~/.bashrc $DIRECTORY/../dotfiles/bashrc
+
