@@ -5,7 +5,7 @@
 
 
 #create a variable to store the current directory the script is executing from
-DIRECTORY = `dirname $0`
+DIRECTORY=`dirname $0`
 
 
 #bootstrap sanity check
@@ -37,7 +37,7 @@ fi
 # ##############################################
 
 #Check bashrc first
-if [ -e "~/.bashrc" ] then
+if [ -e "~/.bashrc" ]; then
     mv ~/.bashrc ~/bashrc.old
 fi
 
