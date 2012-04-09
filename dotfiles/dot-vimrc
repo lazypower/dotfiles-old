@@ -1,27 +1,85 @@
-set number
-colorscheme molokai
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Charles Butler's revized .vimrc
+" Last Updated 04/08/2012
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-map <F5> :call CompileRunGcc()<CR>
-map <F8> : call CompileGcc()<CR>
-map <C-n> : NERDTreeToggle<CR>
-map <C-right> :tabnext<CR>
-map <C-left> :tabprevious<CR>
 
-set cindent
-set smartindent
-set autoindent
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Pathogen Specific Bits
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+call pathogen#infect()
+syntax on
+filetype plugin indent on
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"  Basic Editing Configuration
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set nocompatible
+" allow unsaved background buffers and remember marks/undo for them
+set hidden
+" remember more commands and search history
+set history=10000
 set expandtab
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
+set autoindent
+set laststatus=2
+set showmatch
+set incsearch
+set hlsearch
+" make searches case-sensitive only if they contain upper-case characters
+set ignorecase smartcase
+set cursorline
+set cmdheight=2
+set switchbuf=useopen
+set numberwidth=5
+set showtabline=2
+"stolen from Gary's vimrc - prevent vim from clobbering the scrollback buf
+set t_ti= t_te=
+"make backspace useful in insert mode
+set backspace=indent,eol,start
+set showcmd
 
-func! CompileRunGcc()
-  exec "w" 
-  exec "!g++ % -o %< "
-  exec "i" 
-endfunc
 
-func! CompileGcc()
-  exec "w"
-  exec "!g++ % -o %< && IF EXIST %<"
-  exec "i"
-endfunc
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Garys AUTOCMD's that I liked
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+ augroup vimrcEX
+     autocmd!
+     autocmd FileType text setlocal textwidth=78
+
+  "for ruby, autoindent with two spaces, always expand tabs
+   autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,cucumber set ai sw=2 sts=2 et
+   autocmd FileType python set sw=4 sts=4 et
+
+   autocmd! BufRead,BufNewFile *.sass setfiletype sass
+
+   autocmd BufRead *.mkd set ai formatoptions=tcroqn2 comments=n:&gt;
+   autocmd BufRead *.markdown set ai formatoptions=tcroqn2 comments=n:&gt;
+
+   " Indent p tags
+   autocmd FileType html,eruby if g:html_indent_tags !~ '\\|p\>' | let g:html_indent_tags .= '\|p\|li\|dt\|dd' | endif
+
+   " Don't syntax highlight markdown because it's often wrong
+   autocmd! FileType mkd setlocal syn=off
+ augroup END
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" COLOR
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+:set t_Co=256 " 256 colors
+:set background=dark
+colorscheme tubster
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" STATUS LINE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+:set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+
+
+
+

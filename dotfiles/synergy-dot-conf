@@ -1,18 +1,14 @@
 section: screens
 	Desktop:
-  nano:
 	BOFH:
-  interrupt:
+  Flatline:
 end
 section: links
 	Desktop:
-	   right = interrupt
-     left = BOFH
+	   left = BOFH
+     right = Flatline
 	BOFH:
-	   right = Desktop
-	nano:
-	   left = interrupt
-  interrupt:
-     right = nano
+    right = Desktop
+  Flatline:
      left = Desktop
 end
