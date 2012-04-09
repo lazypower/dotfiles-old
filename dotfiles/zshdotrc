@@ -44,3 +44,5 @@ alias ag="sudo apt-get "
 export GIT_COMMITTER_NAME="Charles Butler"
 export GIT_COMMITER_EMAIL="chuck@dasroot.net"
 
+#RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
