@@ -5,13 +5,12 @@
 
 
 #create a variable to store the current directory the script is executing from
-DIRECTORY=$(dirname $0)
+#DIRECTORY=$(dirname $0)
+#the above was making some assumptions - so if i'm going to do that I may as well
+# stick with the assumptions of my own heirarchy. this will live in $HOME/repository/dotfiles
 
 
-#bootstrap sanity check
-echo "Executing script from : " $DIR
-cd $DIRECTORY
-
+cd $HOME
 
 #I like having a bin and a lib folder in my $HOME
     mkdir -p ~/bin
@@ -22,8 +21,7 @@ cd $DIRECTORY
 #I tend to keep my dotfiles in lib/dotfiles
 if [ ! -d "~/lib/dotfiles" ]; then
     echo "Creating dotfiles symlink" 
-    cd $DIRECTORY
-    ln -s ~/lib/dotfiles ${DIRECTORY}/../dotfiles 
+    ln -s $HOME/repository/dotfiles/dotfiles $HOME/lib/dotfiles
 fi
 
 # ##############################################
@@ -31,9 +29,13 @@ fi
 # ##############################################
 
 #Check bashrc first
-if [ -e "~/.bashrc" ]; then
+if [ -f ${MYBASHRC:=$HOME'/.bashrc'} ]; then      
+    echo "Moving existing ~/.bashrc to ~/bashrc-old"  
     mv ~/.bashrc ~/bashrc.old
 fi
 
-ln -s ~/.bashrc ${DIRECTORY}/../dotfiles/bashrc
+ln -s $HOME/lib/dotfiles/bashrc ~/.bashrc 
+ln -s $HOME/lib/dotfiles/dot-vimrc ~/.vimrc
+ln -s $HOME/lib/dotfiles/dot-vim ~/.vim
+ln -s $HOME/lib/dotfiles/dot-screenrc ~/.screenrc
 
