@@ -5,12 +5,12 @@
 
 
 #create a variable to store the current directory the script is executing from
-DIRECTORY=`dirname $0`
+DIRECTORY=$(dirname $0)
 
 
 #bootstrap sanity check
 echo "Executing script from : " $DIR
-cd `dirname ${DIRECTORY}`
+cd $DIRECTORY
 
 
 #I like having a bin and a lib folder in my $HOME
@@ -20,7 +20,8 @@ cd `dirname ${DIRECTORY}`
 
 
 #I tend to keep my dotfiles in lib/dotfiles
-if [ ! -d "~/lib/.dotfiles" ]; then
+if [ ! -d "~/lib/dotfiles" ]; then
+    echo "Creating dotfiles symlink" 
     cd $DIRECTORY
     ln -s ~/lib/dotfiles ${DIRECTORY}/../dotfiles 
 fi
