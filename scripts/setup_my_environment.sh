@@ -34,8 +34,13 @@ if [ -f ${MYBASHRC:=$HOME'/.bashrc'} ]; then
     mv ~/.bashrc ~/bashrc.old
 fi
 
-ln -s $HOME/lib/dotfiles/bashrc ~/.bashrc 
+#ln -s $HOME/lib/dotfiles/bashrc ~/.bashrc 
 ln -s $HOME/lib/dotfiles/dot-vimrc ~/.vimrc
 ln -s $HOME/lib/dotfiles/dot-vim ~/.vim
 ln -s $HOME/lib/dotfiles/dot-screenrc ~/.screenrc
+
+ln -s $HOME/lib/dotfiles/oh-my-zsh ~/.oh-my-zsh
+ln -s $HOME/lib/dotfiles/zshdotrc ~/.zshrc
+chsh -s /usr/bin/zsh
+
 
