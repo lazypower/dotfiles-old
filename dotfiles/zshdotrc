@@ -44,3 +44,5 @@ alias ag="sudo apt-get "
 export GIT_COMMITTER_NAME="Charles Butler"
 export GIT_COMMITER_EMAIL="chuck@dasroot.net"
 
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
