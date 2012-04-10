@@ -44,6 +44,17 @@ set backspace=indent,eol,start
 set showcmd
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Key Mappings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"make the arrow keys useful again
+map <right> :tabnext<CR>
+map <left> :tabprev<CR>
+
+"make nerdtree easier to get to
+map <up> :NERDTreeToggle<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Garys AUTOCMD's that I liked
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
