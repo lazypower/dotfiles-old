@@ -39,7 +39,8 @@ alias g="nocorrect git"
 alias gl="git log --stat --graph --decorate"
 alias gs="git status"
 alias ag="sudo apt-get "
-
+#Feed the ruby addiction and use THIN for a quick and dirty HTTP server
+alias thinstart="thin start -e development -p 4000 -A file -a 127.0.0.1 -D"
 
 export GIT_COMMITTER_NAME="Charles Butler"
 export GIT_COMMITER_EMAIL="chuck@dasroot.net"
