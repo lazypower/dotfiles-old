@@ -34,7 +34,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 
 alias vi="vim"
-alias ruby19="rvm use ruby-1.9.2"
+alias ruby19="rvm use ruby-1.9.3"
 alias g="nocorrect git"
 alias gl="git log --stat --graph --decorate"
 alias gs="git status"
@@ -47,3 +47,5 @@ export GIT_COMMITER_EMAIL="chuck@dasroot.net"
 
 #RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
