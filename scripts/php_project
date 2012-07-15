@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ -f ~/repository/dotfiles/scripts/skel/lighttpd.conf.skel ]
+then
+    echo copying lighthttpd.conf to current directory
+    cp ~/repository/dotfiles/scripts/skel/lighttpd.conf.skel ./lighttpd.conf
+fi
