@@ -19,3 +19,6 @@
 [submodule "dotfiles/dot-vim/bundle/endwise"]
 	path = dotfiles/dot-vim/bundle/endwise
 	url = https://github.com/tpope/vim-endwise.git
+[submodule "dotfiles/dot-vim/bundle/vim-surround"]
+	path = dotfiles/dot-vim/bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git
