@@ -59,6 +59,10 @@ let mapleader=","
 map <right> :tabnext<CR>
 map <left> :tabprev<CR>
 
+nnoremap <C-l> :tabnext<CR>
+nnoremap <C-k> :tabprev<CR>
+
+
 "make nerdtree easier to get to
 map <up> :NERDTreeToggle<CR>
 
