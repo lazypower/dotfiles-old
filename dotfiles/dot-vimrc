@@ -67,6 +67,8 @@ map <left> :tabprev<CR>
 
 nnoremap <C-l> :tabnext<CR>
 nnoremap <C-k> :tabprev<CR>
+nnoremap <C-n> :tabnew<CR>
+nnoremap <C-m> :tabclose<CR>
 
 
 "make nerdtree easier to get to
