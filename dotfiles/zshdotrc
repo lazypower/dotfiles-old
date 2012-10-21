@@ -6,7 +6,7 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME=""
-ZSH_CUSTOM=$HOME"/lib/dotfiles/zsh-custom"
+ZSH_CUSTOM=$HOME"/.dotfiles/zsh-custom"
 
 # Set to this to use case-sensitive completion
  CASE_SENSITIVE="true"
