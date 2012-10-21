@@ -36,7 +36,8 @@ export PATH=$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 alias vi="vim"
 alias ruby19="rvm use ruby-1.9.3"
 alias g="nocorrect git"
-alias gl="git log --stat --graph --decorate"
+alias gl="~/bin/git-l"
+alias gll="git log --stat --graph --decorate"
 alias gs="git status"
 alias ag="sudo apt-get "
 #Feed the ruby addiction and use THIN for a quick and dirty HTTP server
