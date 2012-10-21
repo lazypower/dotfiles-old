@@ -13,7 +13,6 @@ if [ -d $HOME/.rvm ]
 else
   curl -L https://get.rvm.io | bash -s stable --ruby
   source ~/.rvm/scripts/rvm
-  rvm install 1.9.3
 fi
 
 echo "Installing core utilities"
@@ -21,3 +20,4 @@ sudo apt-get -y install vim tmux zsh
 echo "Installing ruby bootstrap dependencies"
 gem install colorize
 
+ruby bootstrap.rb
