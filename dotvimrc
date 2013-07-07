@@ -1,0 +1,65 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Charles Butler's revized .vimrc
+" Last Updated 04/08/2012
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Pathogen Specific Bits
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+call pathogen#infect()
+syntax on
+filetype plugin indent on
+
+
+" Store swap files in fixed location, not current directory.
+set dir=~/.vimswap//,/var/tmp//,/tmp//,.
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Key Mappings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+ "make the arrow keys useful again
+ map <right> :tabnext<CR>
+ map <left> :tabprev<CR>
+
+ nnoremap <C-l> :tabnext<CR>
+ nnoremap <C-h> :tabprev<CR>
+ nnoremap <C-n> :tabnew<CR>
+ "nnoremap <C-m> :tabclose<CR>
+
+ "ever notice that pasting in vim with autoindent SUCKS ASS?
+ nnoremap <f5> :set invpaste paste?<CR>
+ set pastetoggle=<F5>
+ set showmode
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" COLOR
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+ :set t_Co=256 " 256 colors
+ :set background=dark
+ colorscheme codeschool
+
+
+ hi CursorLine cterm=NONE ctermbg=darkgrey ctermfg=white guibg=darkgrey guifg=white
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" STATUS LINE
+" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+  :set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" AUTOCMDS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+ autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" " displays <% %> correctly
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugin Config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+ filetype plugin on
+
