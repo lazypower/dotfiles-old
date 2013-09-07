@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="gallifrey"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -45,9 +45,23 @@ plugins=(git ruby rbenv)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=$PATH:/home/charles/.rbenv/shims:/home/charles/.rbenv/bin:/home/charles/.rbenv/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+export PATH=$PATH:/home/charles/.rbenv/shims:/home/charles/.rbenv/bin:/home/charles/.rbenv/bin:/home/charles/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
 
 eval "$(rbenv init -)"
+
+#often times i setup environment variables that I dont want tracked in my
+#script files, as they are context specific. Like my rails dev, not all projects use foreman
+
+if [ -f ~/.zsh_env ]
+ then
+ 	source $HOME/.zsh_env
+fi	
+
+#set environment editor to vim
+export EDITOR='vi'
+
+#preferenced aliases
+alias open='nautlius .'
 
 
 #git aliases
@@ -59,5 +73,16 @@ alias gll="git log --stat --graph --decorate"
 alias rs='rails start'
 alias rc='rails console'
 alias bi='bundle install'
+alias be='bundle exec'
+
+#vagrant/chef
+alias vp='vagrant provision'
+
+#locomotive
+alias bewp='bundle exec wagon push'
+alias bews='bundle exec wagon serve'
 
 
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
