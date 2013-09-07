@@ -29,6 +29,9 @@ set dir=~/.vimswap//,/var/tmp//,/tmp//,.
  nnoremap <C-n> :tabnew<CR>
  "nnoremap <C-m> :tabclose<CR>
 
+ "set leader key to ,
+ :let mapleader = ","
+
  "ever notice that pasting in vim with autoindent SUCKS ASS?
  nnoremap <f5> :set invpaste paste?<CR>
  set pastetoggle=<F5>
@@ -41,7 +44,7 @@ set dir=~/.vimswap//,/var/tmp//,/tmp//,.
 
  :set t_Co=256 " 256 colors
  :set background=dark
- colorscheme codeschool
+ color codeschool
 
 
  hi CursorLine cterm=NONE ctermbg=darkgrey ctermfg=white guibg=darkgrey guifg=white
