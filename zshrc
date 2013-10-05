@@ -15,7 +15,7 @@ ZSH_THEME="gallifrey"
 CASE_SENSITIVE="true"
 
 # Comment this out to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment to change how often before auto-updates occur? (in days)
 export UPDATE_ZSH_DAYS=15
@@ -60,9 +60,6 @@ fi
 #set environment editor to vim
 export EDITOR='vi'
 
-#preferenced aliases
-alias open='nautlius .'
-
 
 #git aliases
 alias gs='git status'
@@ -81,7 +78,7 @@ alias vp='vagrant provision'
 #locomotive
 alias bewp='bundle exec wagon push'
 alias bews='bundle exec wagon serve'
-
+alias bewg='bundle exec wagon generate'
 
 
 ### Added by the Heroku Toolbelt
