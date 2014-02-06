@@ -17,6 +17,7 @@ alias p3='python3'
 
 #juju aliases
 alias jud='juju deploy --repository ~/charms'
+alias juc='juju upgrade-charm --repository ~/charms'
 alias jur='juju resolved -r'
 alias jrecycle='sudo juju destroy-environment local && sudo juju bootstrap'
 
