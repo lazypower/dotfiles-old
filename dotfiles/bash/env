@@ -1,3 +1,0 @@
-export EDITOR=gedit
-export PATH=$PATH:~/bin:~/bin/scripts
-export TERM=xterm-color

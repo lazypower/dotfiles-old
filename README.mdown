@@ -1,8 +1,0 @@
-ReDotfiles
-=====================
-
-This time around it has to meet 2 criteria
-1) provide a cross system compatible set of dotfiles for ox and linux
-2) Not be a pain in the ass to get running
-
-Last dotfiles repo i did it all wrong - so heres the glory
