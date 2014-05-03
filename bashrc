@@ -119,9 +119,13 @@ if [ -f $HOME/.bash_exports ]; then
     . $HOME/.bash_exports
 fi
 
-eval "$(rbenv init -)"
+if [ -d $HOME/.nvm ]; then
+	. $HOME/.nvm/nvm.sh
+fi
 
-
-
+if [ -d $HOME/.rbenv ]; then
+ export PATH=$PATH:$HOME/.rbenv/bin
+ eval "$(rbenv init -)"
+fi
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+#export PATH="/usr/local/heroku/bin:$PATH"
