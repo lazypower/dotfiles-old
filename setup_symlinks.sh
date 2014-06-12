@@ -30,5 +30,7 @@ fi
 if [ -f $HOME/.bash_aliases ]; then
     rm $HOME/.bash_aliases
     ln -s $HOME/.dotfiles/bashaliases $HOME/.bash_aliases
+else
+    ln -s $HOME/.dotfiles/bashaliases $HOME/.bash_aliases
 fi
 
