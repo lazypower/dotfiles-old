@@ -12,6 +12,9 @@ alias bc='bzr commit'
 alias cp='rsync -avzhP'
 alias open='xdg-open'
 
+# Config
+alias arun='ansible-playbook -c localhost ~/config/playbook.yaml'
+
 # Ruby 
 alias be='bundle exec'
 
