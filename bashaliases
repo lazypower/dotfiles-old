@@ -18,10 +18,10 @@ alias open='xdg-open'
 # Config
 alias arun='ansible-playbook -c localhost ~/config/playbook.yaml'
 alias aedit='$EDITOR ~/config/playbook.yaml'
-# Ruby 
+# Ruby
 alias be='bundle exec'
 
-#Python 
+#Python
 alias p3='python3'
 
 #juju
@@ -37,9 +37,5 @@ alias btest='bundletester -F -l DEBUG -v'
 # Juju Reviewing aliases
 alias jrev='juju deploy --repository $HOME/tmp/charms'
 alias btestup='source ~/.venv/bin/activate'
-
-
-# ibm-power-helpers
-alias powertest='wget https://gist.githubusercontent.com/chuckbutler/e14b97564f40dc9e6440/raw/cc3f3176fe74254baea09190858f973da375a920/amulet-standup-test.py -O tests/10-bundle-test.py && chmod +x tests/10-bundle-test.py && wget https://gist.githubusercontent.com/chuckbutler/e14b97564f40dc9e6440/raw/555626d090998f53d88e13fb48503eea3f9a73bb/00-setup -O tests/00-setup && chmod +x tests/00-setup'
 
 
