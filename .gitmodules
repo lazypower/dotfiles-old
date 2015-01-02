@@ -22,3 +22,24 @@
 [submodule "dotfiles/dot-vim/bundle/vim-surround"]
 	path = dotfiles/dot-vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
+[submodule "dotvim/bundle/vim-gitgutter"]
+	path = dotvim/bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+[submodule "dotvim/bundle/vim-trailing-whitespace"]
+	path = dotvim/bundle/vim-trailing-whitespace
+	url = https://github.com/bronson/vim-trailing-whitespace.git
+[submodule "dotvim/bundle/vim-fugitive"]
+	path = dotvim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "dotvim/bundle/syntastic"]
+	path = dotvim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule "dotvim/bundle/supertab"]
+	path = dotvim/bundle/supertab
+	url = https://github.com/ervandew/supertab.git
+[submodule "dotvim/bundle/ctrlp.vim"]
+	path = dotvim/bundle/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim.git
+[submodule "dotvim/bundle/nerdtree"]
+	path = dotvim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
