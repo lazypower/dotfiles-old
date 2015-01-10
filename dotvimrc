@@ -40,7 +40,7 @@ set dir=~/.vimswap//,/var/tmp//,/tmp//,.
  nnoremap <C-l> :tabnext<CR>
  nnoremap <C-h> :tabprev<CR>
  nnoremap <C-n> :tabnew<CR>
- "nnoremap <C-m> :tabclose<CR>
+ nnoremap <C-y> :NERDTreeToggle<CR>
 
  "set leader key to ,
  :let mapleader = ","
