@@ -43,3 +43,6 @@
 [submodule "dotvim/bundle/nerdtree"]
 	path = dotvim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule "dotvim/bundle/vim-livedown"]
+	path = dotvim/bundle/vim-livedown
+	url = git://github.com/shime/vim-livedown.git
