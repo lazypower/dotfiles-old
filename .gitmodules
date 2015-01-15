@@ -46,3 +46,12 @@
 [submodule "dotvim/bundle/vim-livedown"]
 	path = dotvim/bundle/vim-livedown
 	url = git://github.com/shime/vim-livedown.git
+[submodule "dotvim/bundle/vim-markdown"]
+	path = dotvim/bundle/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown.git
+[submodule "dotvim/bundle/gist-vim"]
+	path = dotvim/bundle/gist-vim
+	url = https://github.com/mattn/gist-vim.git
+[submodule "dotvim/bundle/webapi-vim"]
+	path = dotvim/bundle/webapi-vim
+	url = https://github.com/mattn/webapi-vim.git

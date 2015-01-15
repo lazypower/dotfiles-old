@@ -32,10 +32,40 @@ alias jd='juju deploy --repository ../../'
 alias juc='juju upgrade-charm --repository ../../'
 alias jr='juju resolved -r'
 alias jrecycle='juju destroy-environment local && juju bootstrap'
-alias btest='bundletester -F -l DEBUG -v'
+alias btest='bundletester -l DEBUG -v'
 
 # Juju Reviewing aliases
 alias jrev='juju deploy --repository $HOME/tmp/charms'
-alias btestup='source ~/.venv/bin/activate'
+alias venv='venv_sanity; source ~/.virtualenv/bin/activate'
 
 
+# Make the virtualenv script a little more intelligent
+venv_sanity()
+{
+    if [ ! -d $HOME/.virtualenv ]; then
+        virtualenv $HOME/.virtualenv
+    fi
+}
+# Move between work and personal juju context
+# Depends on some special vars I have in bash_exports,
+# and thats not tracked in my dotfiles repo
+jujuwork()
+{
+  export JUJU_REPOSITORY=$JUJU_WORK_REPO;
+  echo "work" > $HOME/.juju_repository_env;
+}
+
+jujupersonal()
+{
+  export JUJU_REPOSITORY=$JUJU_PERSONAL_REPO;
+  echo "personal" > $HOME/.juju_repository_env;
+}
+jujureview()
+{
+  export JUJU_REPOSITORY=$JUJU_REVIEW_REPO;
+  echo "review" > $HOME/.juju_repository_env;
+}
+
+alias jwork=jujuwork
+alias jhome=jujupersonal
+alias jreview=jujureview

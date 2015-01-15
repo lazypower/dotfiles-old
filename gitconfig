@@ -45,3 +45,5 @@
 
 [merge]
     tool = vimdiff
+[github]
+	user = chuckbutler
