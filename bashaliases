@@ -36,7 +36,7 @@ alias btest='bundletester -l DEBUG -v'
 
 # Juju Reviewing aliases
 alias jrev='juju deploy --repository $HOME/tmp/charms'
-alias venv='venv_sanity; source ~/.virtualenv/bin/activate'
+alias venv='venv_sanity'
 
 
 # Make the virtualenv script a little more intelligent
@@ -45,6 +45,18 @@ venv_sanity()
     if [ ! -d $HOME/.virtualenv ]; then
         virtualenv $HOME/.virtualenv
     fi
+
+    if [ -d .venv ]; then
+        source .venv/bin/activate
+        return 0
+    fi
+
+    if [ -d venv ]; then
+        source venv/bin/activate
+        return 0
+    fi
+
+    source ~/.virtualenv/bin/activate
 }
 # Move between work and personal juju context
 # Depends on some special vars I have in bash_exports,
