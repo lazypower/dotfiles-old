@@ -78,4 +78,4 @@ set dir=~/.vimswap//,/var/tmp//,/tmp//,.
 " Plugin Config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
  filetype plugin on
-
+ let NERDTreeIgnore = ['\.pyc$']
