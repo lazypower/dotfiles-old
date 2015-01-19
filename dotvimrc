@@ -57,7 +57,7 @@ set dir=~/.vimswap//,/var/tmp//,/tmp//,.
 
  :set t_Co=256 " 256 colors
  :set background=dark
- color blackboard
+ color tomorrow-night
 
 
  hi CursorLine cterm=NONE ctermbg=darkgrey ctermfg=white guibg=darkgrey guifg=white
