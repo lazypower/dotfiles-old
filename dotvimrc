@@ -57,7 +57,7 @@ set dir=~/.vimswap//,/var/tmp//,/tmp//,.
 
  :set t_Co=256 " 256 colors
  :set background=dark
- color atom-dark
+ color blackboard
 
 
  hi CursorLine cterm=NONE ctermbg=darkgrey ctermfg=white guibg=darkgrey guifg=white
@@ -79,3 +79,4 @@ set dir=~/.vimswap//,/var/tmp//,/tmp//,.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
  filetype plugin on
  let NERDTreeIgnore = ['\.pyc$']
+ set laststatus=2
