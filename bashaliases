@@ -24,6 +24,10 @@ alias be='bundle exec'
 #Python
 alias p3='python3'
 
+#CryptFS
+alias cryptup='encfs ~/Dropbox/encrypted ~/Private'
+alias cryptdown='fusermount -u ~/Private'
+
 #juju
 alias jp='watch juju pprint'
 alias jst='juju status'
