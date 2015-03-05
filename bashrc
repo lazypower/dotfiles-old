@@ -102,10 +102,10 @@ if [ -f $HOME/.juju_repository_env ]; then
     JEN=`cat $HOME/.juju_repository_env`
 
     if [ $JEN = 'work' ]; then
-        jujuwork
+        jwork
     fi
     if [ $JEN = 'personal' ]; then
-        jujuhome
+        jhome
     fi
     if [ $JEN = 'review' ]; then
         jreview
