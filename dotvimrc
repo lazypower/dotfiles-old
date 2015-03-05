@@ -27,6 +27,9 @@ set dir=~/.vimswap//,/var/tmp//,/tmp//,.
  set expandtab
  set softtabstop=4
  set autoindent
+ set colorcolumn=80
+ set splitright
+ set splitbelow
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -37,6 +40,9 @@ set dir=~/.vimswap//,/var/tmp//,/tmp//,.
  map <right> :tabnext<CR>
  map <left> :tabprev<CR>
 
+ "I write markdown enough to make livedown a hotkey
+ map <Leader>gm :call LivedownPreview()<CR>
+
  nnoremap <C-l> :tabnext<CR>
  nnoremap <C-h> :tabprev<CR>
  nnoremap <C-n> :tabnew<CR>
@@ -44,6 +50,7 @@ set dir=~/.vimswap//,/var/tmp//,/tmp//,.
 
  "set leader key to ,
  :let mapleader = ","
+
 
  "ever notice that pasting in vim with autoindent SUCKS ASS?
  nnoremap <f5> :set invpaste paste?<CR>
