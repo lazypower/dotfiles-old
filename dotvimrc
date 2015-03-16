@@ -57,6 +57,11 @@ set dir=~/.vimswap//,/var/tmp//,/tmp//,.
  set pastetoggle=<F5>
  set showmode
 
+ "I write a lot of markdown, make previewing much easier
+ nmap gm :LivedownPreview<CR>
+
+" Mutt is making a comeback in my workflow - give me spellcheck!
+:autocmd FileType mail :nmap <F8> :w<CR>:!aspell -e -c %<CR>:e<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLOR
@@ -87,3 +92,7 @@ set dir=~/.vimswap//,/var/tmp//,/tmp//,.
  filetype plugin on
  let NERDTreeIgnore = ['\.pyc$']
  set laststatus=2
+
+ " Stop the obnoxious folding behavior of vim-markdown
+ let g:vim_markdown_folding_disabled=1
+
