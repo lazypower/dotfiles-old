@@ -42,3 +42,10 @@ else
     ln -s $HOME/.dotfiles/bashaliases $HOME/.bash_aliases
 fi
 
+if [[ "$1" = "mail" ]]; then
+    echo "Setting up mail"
+    if [ -d $HOME/.imapfilter ]; then
+        mkdir -p $HOME/.imapfilter
+        ln -s $HOME/.dotfiles/imapfilter $HOME/.imapfilter/config.lua
+    fi
+fi
