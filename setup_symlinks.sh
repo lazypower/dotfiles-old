@@ -26,7 +26,15 @@ if [ -f $HOME/.bashrc ]; then
 fi
 ln -s $HOME/.dotfiles/bashrc $HOME/.bashrc
 
-    
+if [ -f $HOME/.muttrc ]; then
+    rm $HOME/.muttrc
+fi
+ln -s $HOME/.dotfiles/dotmuttrc $HOME/.muttrc
+
+if [ ! -f $HOME/.gpgrc ]; then
+    ln -s $HOME/.dotfiles/gpgrc $HOME/.gpgrc
+fi
+
 if [ -f $HOME/.bash_aliases ]; then
     rm $HOME/.bash_aliases
     ln -s $HOME/.dotfiles/bashaliases $HOME/.bash_aliases

@@ -1,0 +1,81 @@
+# log into imap at start
+set spoolfile="imaps://box.dasroot.net/INBOX"
+set folder="imaps://box.dasroot.net/"
+set record="=Sent"
+set postponed="=Drafts"
+set imap_user=chuck@dasroot.net
+
+
+# Sending email settings
+set smtp_url="smtp://chuck@dasroot.net@box.dasroot.net:587/"
+set use_from=yes
+set realname="Charles Butler"
+set from="chuck@dasroot.net"
+set envelope_from=yes
+
+
+# Rarely do we want to use local folder
+unset imap_passive
+# Use Secure Socket transmissions to email
+set ssl_starttls=yes
+set ssl_force_tls=yes
+
+
+# ==============
+# CryptoMail
+# =============
+source ~/.gpgrc
+set pgp_replyencrypt = yes
+set pgp_replysignencrypted = yes
+set pgp_verify_sig = yes
+set pgp_use_gpg_agent = yes
+set pgp_sign_as = 47B5C09D
+set pgp_timeout = 60
+set crypt_autosign = yes
+set crypt_replyencrypt = yes
+
+# Set folder preferences and frequency
+set trash="=Trash"
+set imap_check_subscribed
+set mail_check=60
+set header_cache=~/.hacache
+set net_inc=5
+
+# ==================
+# Bindings for Index
+# ==================
+
+bind index x    sync-mailbox
+bind index a    tag-prefix
+bind index \;   tag-entry
+bind index t    tag-entry
+
+# ==================
+# Bindings for Pager
+# ==================
+
+bind pager /    search
+bind pager L    list-reply
+
+macro pager J "!gpg --keyserver keyserver.ubuntu.com --recv-key " "Get PGP Key"
+macro pager K "!gpg --lsign-key " "Sign PGP Key"
+
+
+
+# ==================
+# Preferences
+# ==================
+
+set quit=yes
+set recall=no
+set reply_to=yes
+set delete=yes
+set include=yes
+set mime_forward=ask-no
+set honor_followup_to=yes
+set abort_unmodified=yes
+
+set attribution="* %n (%a) wrote:"
+set indent_str="> "
+
+set editor="vim \"+set nonumber\" \"+set spell\" +/^$/ +9"
