@@ -60,7 +60,9 @@ bind pager L    list-reply
 macro pager J "!gpg --keyserver keyserver.ubuntu.com --recv-key " "Get PGP Key"
 macro pager K "!gpg --lsign-key " "Sign PGP Key"
 
-
+# Give me keybindings to drop into my INBOX from everywhere
+macro index I "c!\n" "Go to Inbox"
+macro pager I "c!\n" "Go to Inbox"
 
 # ==================
 # Preferences
