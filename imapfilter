@@ -30,12 +30,17 @@ function main()
     --- Move Financial feed from INBOX to correct folders
     move_financial_email(account, mails)
 
+    --- salvage social email from spam
+    move_project_notices(account, mails)
+
     --- Salvage financial mail from spam
     move_financial_email(account, spam)
 
     --- salvage social email from spam
     move_social_notices(account, spam)
 
+    -- Let spam rules run last - rule the roost with anti-spam
+    handle_spammy_feeds(account, mails)
 
 end
 
@@ -70,7 +75,9 @@ end
 
 function move_project_notices(account, mails)
     -- Github
+    move_if_from_contains(account, mails, "@github.com", "Projects/Github")
     -- trello
+    move_if_from_contains(account, mails, "@trello.com", "Projects/Trello")
 end
 
 function move_social_notices(account, mails)
@@ -100,7 +107,7 @@ function move_social_notices(account, mails)
 
 end
 
-function delete_spammy_feeds(account, mails)
+function handle_spammy_feeds(account, mails)
    -- Dunhams
     delete_mail_from(account, mails, "discounts@dunhamsrewards.com")
    -- Groupon
@@ -109,6 +116,8 @@ function delete_spammy_feeds(account, mails)
     delete_mail_from(account, mails, "news@twilio.com")
    -- Stumbleupon
     delete_mail_from(account, mails, "@mail.stumblemail.net")
+   -- Ansible
+   move_if_from_contains(account, mails, "@ansible.com", "Spam")
 end
 
 
