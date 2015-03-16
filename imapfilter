@@ -107,6 +107,8 @@ function delete_spammy_feeds(account, mails)
     delete_mail_from(account, mails, "@groupon.com")
    -- twilio
     delete_mail_from(account, mails, "news@twilio.com")
+   -- Stumbleupon
+    delete_mail_from(account, mails, "@mail.stumblemail.net")
 end
 
 
