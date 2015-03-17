@@ -56,7 +56,8 @@ function move_mailing_lists(account, mails)
 
     -- Docker
     move_if_from_contains(account, mails, "docker-user@", "ML/Docker")
-    move_if_subject_contains(account, mails, "[docker-user]", "ML/Docker")
+    move_if_subject_contains(account, mails, "[docker]", "ML/Docker")
+    move_if_to_contains(account, mails, "docker-user@googlegroups.com", "ML/Docker")
 end
 
 function move_financial_email(account, mails)
