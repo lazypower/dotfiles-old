@@ -71,6 +71,9 @@ function move_financial_email(account, mails)
     -- Fandango
     move_if_from_contains(account, mails, "@trx.fandangopurchase.com", "Financial/ReceiptFeed")
 
+    -- Pizzahut
+    move_if_from_contains(account, mails, "@orders.pizzahut.com", "Financial/ReceiptFeed")
+
 end
 
 function move_project_notices(account, mails)
@@ -112,12 +115,15 @@ function handle_spammy_feeds(account, mails)
     delete_mail_from(account, mails, "discounts@dunhamsrewards.com")
    -- Groupon
     delete_mail_from(account, mails, "@groupon.com")
+    delete_mail_from(account, mails, "@r.groupon.com")
    -- twilio
     delete_mail_from(account, mails, "news@twilio.com")
    -- Stumbleupon
     delete_mail_from(account, mails, "@mail.stumblemail.net")
    -- Ansible
    move_if_from_contains(account, mails, "@ansible.com", "Spam")
+   -- Pinterest, dont ask
+   delete_mail_from(account, mails, "@pinterest.com")
 end
 
 
