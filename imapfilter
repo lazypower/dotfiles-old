@@ -53,6 +53,10 @@ function move_mailing_lists(account, mails)
     -- WPLUG
     move_if_to_contains(account, mails, "@wplug.org", "ML/WPLUG")
     move_if_from_contains(account, mails, "@wplug.org", "ML/WPLUG")
+
+    -- Docker
+    move_if_from_contains(account, mails, "docker-user@", "ML/Docker")
+    move_if_subject_contains(account, mails, "[docker-user]", "ML/Docker")
 end
 
 function move_financial_email(account, mails)

@@ -5,7 +5,6 @@ set record="=Sent"
 set postponed="=Drafts"
 set imap_user=chuck@dasroot.net
 
-
 # Sending email settings
 set smtp_url="smtp://chuck@dasroot.net@box.dasroot.net:587/"
 set use_from=yes
@@ -13,12 +12,65 @@ set realname="Charles Butler"
 set from="chuck@dasroot.net"
 set envelope_from=yes
 
-
 # Rarely do we want to use local folder
 unset imap_passive
 # Use Secure Socket transmissions to email
 set ssl_starttls=yes
 set ssl_force_tls=yes
+
+# ==============
+# Preferences
+# =============
+set quit=yes
+set recall=yes
+set reply_to=yes
+set delete=yes
+set include=yes
+set mime_forward=ask-no
+set honor_followup_to=yes
+set abort_unmodified=yes
+set fast_reply=yes
+
+set attribution="* %n (%a) wrote:"
+set indent_str="> "
+
+set editor="vim \"+set nonumber\" \"+set spell\" +/^$/ +9"
+
+
+
+set hdrs                    # nohdrs implies not to write my_hdr into mail.
+unset header                # quote header on reply
+set mailcap_sanitize        # remove ugly characters from mailcap % expands
+set mark_old                # mark new articles as old when leaving mbox
+unset markers               # put a + at the beginning of wrapped lines
+unset metoo                 # should we keep ourselves in group replies?
+set pager_stop              # Dont jump to next message at end of message
+unset reply_self            # if unset, a reply to yourself implies reply to other
+unset reverse_alias         # use realname from reverse alias lookup
+unset reverse_name          # Set "From" to address, where replied mail was sent to
+unset save_address          # Use full mail adress (with domain) as default folder.
+unset save_empty            # remove mailbox when last message is removed.
+unset sig_dashes            # Don't prepend "-- \n" to the signature
+set smart_wrap              # wrap long lines at word boundary.
+set sort_re                 # set: only put a child in a thread, if starts with Re:
+set status_on_top           # status line at the top or button?
+unset strict_threads        # thread only by In-Reply-To/References or by Subject.
+unset suspend               # Ctrl-Z is able to suspend mutt.
+unset thorough_search       # MIME decode before searching.
+
+
+
+## ======================================================================
+## Format Strings:
+## ======================================================================
+## forward_format - format the text used in the format attribution
+set forward_format="(forw) [%a: %s]"
+set index_format="%4C %Z %[!%d/%m] %-17.17F (%3l) %s"
+set pager_format="%S [%C] %n (%l) %s"
+#set folder_format="%F %-8.8u %-8.8g %d %8s %N %f"
+set folder_format="%F %d %8s %N %f"
+set status_format="-%r-Mutt: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b? %?l? %l?]---(%s/%S)-%>-(%P)---"
+
 
 
 # ==============
@@ -64,20 +116,80 @@ macro pager K "!gpg --lsign-key " "Sign PGP Key"
 macro index I "c!\n" "Go to Inbox"
 macro pager I "c!\n" "Go to Inbox"
 
+# Move message to Archive
+macro index A "<save-message><enter><sync-mailbox>" "archive"
+
 # ==================
-# Preferences
+# Colors
 # ==================
+#
+# This theme is from H. D. Lee
+#
+# This colors file was originally taken from Rosenfeld's
+# Modified slightly.
+# Running aterm with:
+#  aterm +sb -geometry 80x60 -bg papayawhip -fg darkgreen -e mutt
+#
+# color terminals:
+# (default, white, black, green, magenta, blue, cyan, yellow, red)
+# (bright...)
+# (color1,color2,...,colorN-1)
+#
+#     object     foreground     background
+#
+color normal     default        default # normal text
+color indicator  brightcyan     black   # actual message
+color tree       brightmagenta  default # thread arrows
+color status     cyan           black   # status line
+color error      brightcyan     default # errors
+color message    cyan           default # info messages
+color signature  red            default # signature
+color attachment green          default # MIME attachments
+color search     brightyellow   red     # search matches
+color tilde      brightmagenta  default # ~ at bottom of msg
+color markers    red            default # + at beginning of wrapped lines
+color hdrdefault blue           default # default header lines
+color bold       red            default # hiliting bold patterns in body
+color underline  green          default # hiliting underlined patterns in body
+color quoted     cyan           default # quoted text
+color quoted1    green          default
+color quoted2    red            default
+color quoted3    magenta        default
+color quoted4    blue           default
+color quoted5    blue           default
+#
+#     object     foreground backg.   RegExp
+#
+color header     red        default  "^(from|subject):"
+color body       yellow       default  "((ftp|http|https)://|(file|news):|www\\.)[-a-z0-9_.:]*[a-z0-9](/[^][{} \t\n\r\"<>()]*[^][{} \t\n\r\"<>().,:!])?/?"
+color body       cyan       default  "[-a-z_0-9.+]+@[-a-z_0-9.]+"
+color body       red        default  "(^| )\\*[-a-z0-9*]+\\*[,.?]?[ \n]"
+color body       green      default  "(^| )_[-a-z0-9_]+_[,.?]?[ \n]"
 
-set quit=yes
-set recall=no
-set reply_to=yes
-set delete=yes
-set include=yes
-set mime_forward=ask-no
-set honor_followup_to=yes
-set abort_unmodified=yes
+uncolor index *                                 # unset all color index entries
+color index      brightblack default "~h ^X.Mailer..Microsoft.Outlook"
+color index      green      default  ~F         # Flagged
+color index      red        default  ~N         # New
+color index      magenta    default  ~T         # Tagged
+color index      yellow     default  ~D         # Deleted
+color index  blue       default  '\[(CHRPM|Contrib-Rpm)\]'
 
-set attribution="* %n (%a) wrote:"
-set indent_str="> "
 
-set editor="vim \"+set nonumber\" \"+set spell\" +/^$/ +9"
+# ======================
+# Sidebar Config
+# ======================
+
+set sidebar_width=30
+set sidebar_visible=no
+set sidebar_delim='|'
+set sidebar_sort=yes
+bind index CP sidebar-prev
+bind index CN sidebar-next
+bind index CO sidebar-open
+bind pager CP sidebar-prev
+bind pager CN sidebar-next
+bind pager CO sidebar-open
+macro index b '<enter-command>toggle sidebar_visible<enter>'
+macro pager b '<enter-command>toggle sidebar_visible<enter>'
+bind index B bounce-message
+
