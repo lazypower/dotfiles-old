@@ -43,6 +43,10 @@ alias jrev='juju deploy --repository $HOME/tmp/charms'
 alias venv='venv_sanity'
 alias jujubox='docker run --rm --privileged -v $HOME/.juju:/home/ubuntu/.juju -i -t jujubox'
 
+JUJU_WORK_REPO="$HOME/projects/work/charms"
+JUJU_PERSONAL_REPO="$HOME/projects/charms"
+JUJU_REVIEW_REPO="$HOME/tmp/charms"
+
 # Make the virtualenv script a little more intelligent
 venv_sanity()
 {
