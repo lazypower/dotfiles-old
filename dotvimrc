@@ -48,8 +48,13 @@ set dir=~/.vimswap//,/var/tmp//,/tmp//,.
  nnoremap <C-n> :tabnew<CR>
  nnoremap <C-y> :NERDTreeToggle<CR>
 
+ " Easier buffer switching for those cases when vsplit
+ " Assumes left is prev, right is next
+ map <Leader>l <C-W><C-L>
+ map <Leader>h <C-W><C-H>
+
  "set leader key to ,
- :let mapleader = ","
+ :let mapleader = ";"
 
 
  "ever notice that pasting in vim with autoindent SUCKS ASS?
