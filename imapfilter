@@ -49,6 +49,7 @@ function move_mailing_lists(account, mails)
     -- JUJU
     move_if_to_contains(account, mails, "juju@lists.ubuntu.com", "ML/Juju")
     move_if_from_contains(account, mails, "juju@lists.ubuntu.com", "ML/Juju")
+    move_if_cc_contains(account, mails, "juju@lists.ubuntu.com", "ML/Juju")
 
     -- WPLUG
     move_if_to_contains(account, mails, "@wplug.org", "ML/WPLUG")
@@ -58,6 +59,12 @@ function move_mailing_lists(account, mails)
     move_if_from_contains(account, mails, "docker-user@", "ML/Docker")
     move_if_subject_contains(account, mails, "[docker]", "ML/Docker")
     move_if_to_contains(account, mails, "docker-user@googlegroups.com", "ML/Docker")
+
+    -- Launchpad Users
+    move_if_to_contains(account, mails, "launchpad-users@lists.launchpad.net", "ML/Launchpad")
+    move_if_cc_contains(account, mails, "launchpad-users@lists.launchpad.net", "ML/Launchpad")
+    move_if_subject_contains(account, mails, "[Launchpad Users]", "ML/Launchpad")
+
 end
 
 function move_financial_email(account, mails)
@@ -78,6 +85,14 @@ function move_financial_email(account, mails)
 
     -- Pizzahut
     move_if_from_contains(account, mails, "@orders.pizzahut.com", "Financial/ReceiptFeed")
+
+    -- Student Loans
+    move_if_subject_contains(account, mails, "Student Loan Payment", "Financial/StudentLoan")
+
+    -- Music Purchases
+    move_if_subject_contains(account, mails, "Bandcamp", "Financial/Music")
+    move_if_from_contains(account, mails, "noreply@bandcamp.com", "Financial/Music")
+
 
 end
 
@@ -129,6 +144,11 @@ function handle_spammy_feeds(account, mails)
    move_if_from_contains(account, mails, "@ansible.com", "Spam")
    -- Pinterest, dont ask
    delete_mail_from(account, mails, "@pinterest.com")
+
+   -- Old product notices that we no longer care about
+   move_if_from_contains(account, mails, "@parallels-universe.com", "Spam")
+   move_if_from_contains(account, mails, "@graffletopia.com", "Spam")
+
 end
 
 
@@ -150,6 +170,13 @@ function move_if_from_contains(account, mails, from, mailbox)
     filtered = mails:contain_from(from)
     filtered:move_messages(account[mailbox])
 end
+
+function move_if_cc_contains(account, mails, cc, mailbox)
+    filtered = mails:contain_cc(cc)
+    filtered:move_messages(account[mailbox])
+end
+
+
 
 function delete_mail_from(account, mails, from)
     filtered = mails:contain_from(from)
