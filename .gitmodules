@@ -58,3 +58,6 @@
 [submodule "dotvim/bundle/vim-airline"]
 	path = dotvim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline
+[submodule "dotvim/bundle/DirDiff.vim"]
+	path = dotvim/bundle/DirDiff.vim
+	url = git@github.com:vim-scripts/DirDiff.vim.git
