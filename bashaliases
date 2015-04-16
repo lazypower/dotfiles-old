@@ -42,7 +42,7 @@ alias btest='bundletester -l DEBUG -v'
 alias jrev='juju deploy --repository $HOME/tmp/charms'
 alias venv='venv_sanity'
 alias jujubox='docker run --rm --privileged -v $HOME/.juju:/home/ubuntu/.juju -i -t jujubox'
-alias charmbox='docker run --rm -v $HOME/.juju:/home/ubuntu/.juju -v $JUJU_REPOSITORY/trusty:/home/ubuntu/trusty -v $JUJU_REPOSITORY/precise:/home/ubuntu/precise -ti charmbox'
+alias charmbox='docker run --rm -v $HOME/.juju:/home/ubuntu/.juju -v $JUJU_REPOSITORY/trusty:/home/ubuntu/trusty -v $JUJU_REPOSITORY/precise:/home/ubuntu/precise -v $JUJU_REPOSITORY/bundles:/home/ubuntu/bundles -ti charmbox'
 
 
 JUJU_WORK_REPO="$HOME/projects/work/charms"
@@ -91,3 +91,18 @@ jujureview()
 alias jwork=jujuwork
 alias jhome=jujupersonal
 alias jreview=jujureview
+
+stop_juju_local()
+{
+  sudo service juju-db-charles-local stop
+  sudo service juju-agent-charles-local stop
+}
+
+start_juju_local()
+{
+  sudo service juju-db-charles-local start
+  sudo service juju-agent-charles-local start
+}
+
+alias jujustop=stop_juju_local
+alias jujustart=start_juju_local
