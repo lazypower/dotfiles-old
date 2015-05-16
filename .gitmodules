@@ -61,3 +61,6 @@
 [submodule "dotvim/bundle/DirDiff.vim"]
 	path = dotvim/bundle/DirDiff.vim
 	url = git@github.com:vim-scripts/DirDiff.vim.git
+[submodule "dotvim/bundle/vim-jinja2"]
+	path = dotvim/bundle/vim-jinja2
+	url = https://github.com/Glench/Vim-Jinja2-Syntax.git
