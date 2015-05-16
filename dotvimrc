@@ -78,9 +78,13 @@ set dir=~/.vimswap//,/var/tmp//,/tmp//,.
 
 
  hi CursorLine cterm=NONE ctermbg=none ctermfg=white
+
+ " Set the buffer to highlight jinja files
+ au BufRead,BufNewFile *.jinja2 set syntax=jinja
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE
-" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
   :set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 
 
