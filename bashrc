@@ -110,6 +110,10 @@ if [ -f $HOME/.juju_repository_env ]; then
     if [ $JEN = 'review' ]; then
         jreview
     fi
+    if [ $JEN = 'kubes' ]; then
+        jkubes
+    fi
+
 fi
 [[ -s "/home/charles/.gvm/scripts/gvm" ]] && source "/home/charles/.gvm/scripts/gvm"
 

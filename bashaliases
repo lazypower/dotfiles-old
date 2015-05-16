@@ -1,3 +1,6 @@
+#hack
+alias irc='sshuttle -r ubuntu@107.170.2.49 10.0.3.0/24'
+
 #DJ Tools
 alias yrip='youtube-dl -x --audio-format=mp3'
 
@@ -12,7 +15,7 @@ alias bi='bzr info'
 alias bc='bzr commit'
 
 # Shell fun
-alias cp='rsync -avzhP'
+#alias cp='rsync -avzhP'
 alias open='xdg-open'
 
 # Config
@@ -87,10 +90,18 @@ jujureview()
   export JUJU_REPOSITORY=$JUJU_REVIEW_REPO;
   echo "review" > $HOME/.juju_repository_env;
 }
+jujukubes()
+{
+  export JUJU_REPOSITORY=$HOME/projects/work/kubernetes/cluster/juju/charms;
+  echo "kubes" > $HOME/.juju_repository_env;
+}
+
+
 
 alias jwork=jujuwork
 alias jhome=jujupersonal
 alias jreview=jujureview
+alias jkubes=jujukubes
 
 stop_juju_local()
 {
