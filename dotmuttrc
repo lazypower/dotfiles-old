@@ -1,12 +1,12 @@
 # log into imap at start
-set spoolfile="imaps://box.dasroot.net/INBOX"
-set folder="imaps://box.dasroot.net/"
+set spoolfile="imaps://phobos.dasroot.net/INBOX"
+set folder="imaps://phobos.dasroot.net/"
 set record="=Sent"
 set postponed="=Drafts"
 set imap_user=chuck@dasroot.net
 
 # Sending email settings
-set smtp_url="smtp://chuck@dasroot.net@box.dasroot.net:587/"
+set smtp_url="smtp://chuck@dasroot.net@phobos.dasroot.net:587/"
 set use_from=yes
 set realname="Charles Butler"
 set from="chuck@dasroot.net"

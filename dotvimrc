@@ -92,6 +92,7 @@ set dir=~/.vimswap//,/var/tmp//,/tmp//,.
 " AUTOCMDS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
  autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" " displays <% %> correctly
+ autocmd BufNewFile,BufRead *.jsonp set ft=javascript " Sets appropriate SH on jsonp files
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin Config

@@ -1,6 +1,5 @@
-#hack
-alias irc='sshuttle -r ubuntu@107.170.2.49 10.0.3.0/24'
-
+# lazy
+alias callhome='ssh -p 2200 charles@homebase.dasroot.net'
 #DJ Tools
 alias yrip='youtube-dl -x --audio-format=mp3'
 
@@ -13,19 +12,17 @@ alias gc='git commit'
 alias bs='bzr status'
 alias bi='bzr info'
 alias bc='bzr commit'
+alias bl='bzr log|less'
 
 # Shell fun
-#alias cp='rsync -avzhP'
 alias open='xdg-open'
 
-# Config
-alias arun='ansible-playbook -c localhost ~/config/playbook.yaml'
-alias aedit='$EDITOR ~/config/playbook.yaml'
 # Ruby
 alias be='bundle exec'
 
 #Python
 alias p3='python3'
+alias venv='venv_sanity'
 
 #CryptFS
 alias cryptup='encfs ~/Dropbox/encrypted ~/Private'
@@ -40,17 +37,18 @@ alias juc='juju upgrade-charm --repository ../../'
 alias jr='juju resolved -r'
 alias jrecycle='juju destroy-environment local && juju bootstrap'
 alias btest='bundletester -l DEBUG -v'
+alias cr='charm build -o $JUJU_REPOSITORY -l DEBUG'
 
 # Juju Reviewing aliases
-alias jrev='juju deploy --repository $HOME/tmp/charms'
-alias venv='venv_sanity'
-alias jujubox='docker run --rm --privileged -v $HOME/.juju:/home/ubuntu/.juju -i -t jujubox'
-alias charmbox='docker run --rm -v $HOME/.juju:/home/ubuntu/.juju -v $JUJU_REPOSITORY/trusty:/home/ubuntu/trusty -v $JUJU_REPOSITORY/precise:/home/ubuntu/precise -v $JUJU_REPOSITORY/bundles:/home/ubuntu/bundles -ti charmbox'
-
+alias jujubox='docker run --rm --privileged -v $HOME/.juju:/home/ubuntu/.juju -i -t jujusolutions/jujubox:latest'
+alias charmbox='docker run --rm --net host --privileged -v $HOME/.juju:/home/ubuntu/.juju -v $JUJU_REPOSITORY/trusty:/home/ubuntu/trusty -v $JUJU_REPOSITORY/precise:/home/ubuntu/precise -v $JUJU_REPOSITORY/bundles:/home/ubuntu/bundles -v $JUJU_REPOSITORY/layers:/home/ubuntu/layers -i -t jujusolutions/charmbox:latest'
+alias payloadbox='docker run --rm --net host --privileged -v $HOME/.juju:/home/ubuntu/.juju -v $JUJU_REPOSITORY/trusty:/home/ubuntu/trusty -v $JUJU_REPOSITORY/precise:/home/ubuntu/precise -v $JUJU_REPOSITORY/bundles:/home/ubuntu/bundles -v $JUJU_REPOSITORY/layers:/home/ubuntu/layers -i -t charmbox:125'
+alias massnet='sshuttle -D -r charles@10.0.10.2 192.168.100.0/24'
 
 JUJU_WORK_REPO="$HOME/projects/work/charms"
 JUJU_PERSONAL_REPO="$HOME/projects/charms"
 JUJU_REVIEW_REPO="$HOME/tmp/charms"
+
 
 # Make the virtualenv script a little more intelligent
 venv_sanity()
@@ -78,25 +76,34 @@ jujuwork()
 {
   export JUJU_REPOSITORY=$JUJU_WORK_REPO;
   echo "work" > $HOME/.juju_repository_env;
+  composer_paths
 }
 
 jujupersonal()
 {
   export JUJU_REPOSITORY=$JUJU_PERSONAL_REPO;
   echo "personal" > $HOME/.juju_repository_env;
+  composer_paths
 }
 jujureview()
 {
   export JUJU_REPOSITORY=$JUJU_REVIEW_REPO;
   echo "review" > $HOME/.juju_repository_env;
+  composer_paths
 }
 jujukubes()
 {
   export JUJU_REPOSITORY=$HOME/projects/work/kubernetes/cluster/juju/charms;
   echo "kubes" > $HOME/.juju_repository_env;
+  composer_paths
 }
 
-
+# These are for working with juju composer
+composer_paths()
+{
+  export INTERFACE_PATH=$JUJU_REPOSITORY/interfaces
+  export COMPOSER_PATH=$JUJU_REPOSITORY/layers
+}
 
 alias jwork=jujuwork
 alias jhome=jujupersonal
