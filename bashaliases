@@ -1,126 +1,93 @@
-# lazy
-alias callhome='ssh -p 2200 charles@homebase.dasroot.net'
-#DJ Tools
-alias yrip='youtube-dl -x --audio-format=mp3'
-
-# GIT
 alias gs='git status'
-alias gl='git l'
-alias gc='git commit'
 
-# BZR
-alias bs='bzr status'
-alias bi='bzr info'
-alias bc='bzr commit'
-alias bl='bzr log|less'
+# Docker Aliases
+alias dgc='docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc spotify/docker-gc'
 
-# Shell fun
-alias open='xdg-open'
+# Pull the container for mybox - specific build for juju 2.0 beta8
+alias dmb='docker pull jujusolutions/charmbox:devel@sha256:a9601d26dbde7702df519f4d4aca9c438f9d1d0697aaf8d1bfa68d7e9197a041'
 
-# Ruby
-alias be='bundle exec'
+#SNAPBOX
 
-#Python
-alias p3='python3'
-alias venv='venv_sanity'
-
-#CryptFS
-alias cryptup='encfs ~/Dropbox/encrypted ~/Private'
-alias cryptdown='fusermount -u ~/Private'
-
-#juju
-alias jp='watch juju pprint'
-alias jst='juju status'
-alias js='juju switch'
-alias jd='juju deploy --repository ../../'
-alias juc='juju upgrade-charm --repository ../../'
-alias jr='juju resolved -r'
-alias jrecycle='juju destroy-environment local && juju bootstrap'
-alias btest='bundletester -l DEBUG -v'
-alias cr='charm build -o $JUJU_REPOSITORY -l DEBUG'
-
-# Juju Reviewing aliases
-alias jujubox='docker run --rm --privileged -v $HOME/.juju:/home/ubuntu/.juju -i -t jujusolutions/jujubox:latest'
-alias charmbox='docker run --rm --net host --privileged -v $HOME/.juju:/home/ubuntu/.juju -v $JUJU_REPOSITORY/trusty:/home/ubuntu/trusty -v $JUJU_REPOSITORY/precise:/home/ubuntu/precise -v $JUJU_REPOSITORY/bundles:/home/ubuntu/bundles -v $JUJU_REPOSITORY/layers:/home/ubuntu/layers -i -t jujusolutions/charmbox:latest'
-alias payloadbox='docker run --rm --net host --privileged -v $HOME/.juju:/home/ubuntu/.juju -v $JUJU_REPOSITORY/trusty:/home/ubuntu/trusty -v $JUJU_REPOSITORY/precise:/home/ubuntu/precise -v $JUJU_REPOSITORY/bundles:/home/ubuntu/bundles -v $JUJU_REPOSITORY/layers:/home/ubuntu/layers -i -t charmbox:125'
-alias massnet='sshuttle -D -r charles@10.0.10.2 192.168.100.0/24'
-
-JUJU_WORK_REPO="$HOME/projects/work/charms"
-JUJU_PERSONAL_REPO="$HOME/projects/charms"
-JUJU_REVIEW_REPO="$HOME/tmp/charms"
+alias ezsnap='docker run --rm \
+              -h snapbox.juju.solutions \
+              --dns 8.8.8.8 \
+              -v $PWD:/snaps \
+              snapbox:onbuild'
 
 
-# Make the virtualenv script a little more intelligent
-venv_sanity()
-{
-    if [ ! -d $HOME/.virtualenv ]; then
-        virtualenv $HOME/.virtualenv
-    fi
+# JUJU Aliases
+alias pinbox='docker run --rm \
+              -ti  \
+              -h devbox.juju.solutions \
+              -v $HOME/.juju-work:/home/ubuntu/.local/share/juju \
+              -v $HOME/.go-cookies:/home/ubuntu/.go-cookies \
+              -v $HOME/.gitconfig:/home/ubuntu/.gitconfig \
+              -v $HOME/.ssh:/home/ubuntu/.ssh2 \
+              -v $HOME/projects/work/interfaces:/home/ubuntu/interfaces \
+              -v $HOME/projects/work/layers:/home/ubuntu/layers \
+              -v $HOME/projects/work/builds:/home/ubuntu/builds \
+              -v $HOME/projects/work/trusty:/home/ubuntu/trusty \
+              -v $HOME/projects/work/xenial:/home/ubuntu/xenial \
+              -v $HOME/projects/work/bundles:/home/ubuntu/bundles \
+              -v $HOME/projects/work:/home/ubuntu/work \
+              -v $PWD:/home/ubuntu/pwd \
+              e1b3f8edb13c
+#                 88f93929767c'
 
-    if [ -d .venv ]; then
-        source .venv/bin/activate
-        return 0
-    fi
+alias stablebox='docker run --rm \
+              -ti  \
+              -h charmbox.juju.solutions \
+              -v $HOME/.juju:/home/ubuntu/.juju \
+              -v $HOME/projects/work/interfaces:/home/ubuntu/interfaces \
+              -v $HOME/projects/work/layers:/home/ubuntu/layers \
+              -v $HOME/projects/work/trusty:/home/ubuntu/trusty \
+              -v $HOME/projects/work/xenial:/home/ubuntu/xenial \
+              -v $HOME/projects/work/builds:/home/ubuntu/builds \
+              -v $HOME/projects/work/bundles:/home/ubuntu/bundles \
+              -v $HOME/projects/work:/home/ubuntu/work \
+              -v $PWD:/home/ubuntu/pwd \
+              jujusolutions/charmbox'
 
-    if [ -d venv ]; then
-        source venv/bin/activate
-        return 0
-    fi
+alias cwrbox='docker run --rm \
+              -ti  \
+              -h charmbox.juju.solutions \
+              -v $HOME/.juju:/home/ubuntu/.juju \
+              -v $HOME/projects/work/interfaces:/home/ubuntu/interfaces \
+              -v $HOME/projects/work/layers:/home/ubuntu/layers \
+              -v $HOME/projects/work/trusty:/home/ubuntu/trusty \
+              -v $HOME/projects/work/xenial:/home/ubuntu/xenial \
+              -v $HOME/projects/work/builds:/home/ubuntu/builds \
+              -v $HOME/projects/work/bundles:/home/ubuntu/bundles \
+              -v $HOME/projects/work:/home/ubuntu/work \
+              -v $PWD:/home/ubuntu/pwd \
+              cwrbox'
 
-    source ~/.virtualenv/bin/activate
-}
-# Move between work and personal juju context
-# Depends on some special vars I have in bash_exports,
-# and thats not tracked in my dotfiles repo
-jujuwork()
-{
-  export JUJU_REPOSITORY=$JUJU_WORK_REPO;
-  echo "work" > $HOME/.juju_repository_env;
-  composer_paths
-}
 
-jujupersonal()
-{
-  export JUJU_REPOSITORY=$JUJU_PERSONAL_REPO;
-  echo "personal" > $HOME/.juju_repository_env;
-  composer_paths
-}
-jujureview()
-{
-  export JUJU_REPOSITORY=$JUJU_REVIEW_REPO;
-  echo "review" > $HOME/.juju_repository_env;
-  composer_paths
-}
-jujukubes()
-{
-  export JUJU_REPOSITORY=$HOME/projects/work/kubernetes/cluster/juju/charms;
-  echo "kubes" > $HOME/.juju_repository_env;
-  composer_paths
-}
+alias charmbox='docker run --rm \
+              -ti  \
+              -h charmbox.juju.solutions \
+              --dns=8.8.8.8 \
+              -v $HOME/.juju-work:/home/ubuntu/.local/share/juju \
+              -v $HOME/.vim:/home/ubuntu/.vim \
+              -v $HOME/.vimrc:/home/ubuntu/.vimrc \
+              -v $HOME/.gitconfig:/home/ubuntu/.gitconfig \
+              -v $HOME/.go-cookies:/home/ubuntu/.go-cookies \
+              -v $HOME/projects/work/interfaces:/home/ubuntu/interfaces \
+              -v $HOME/projects/work/layers:/home/ubuntu/layers \
+              -v $HOME/projects/work/trusty:/home/ubuntu/trusty \
+              -v $HOME/projects/work/xenial:/home/ubuntu/xenial \
+              -v $HOME/projects/work/builds:/home/ubuntu/builds \
+              -v $HOME/projects/work/bundles:/home/ubuntu/bundles \
+              -v $HOME/projects/work:/home/ubuntu/work \
+              -v $PWD:/home/ubuntu/pwd \
+              jujusolutions/charmbox:devel'
 
-# These are for working with juju composer
-composer_paths()
-{
-  export INTERFACE_PATH=$JUJU_REPOSITORY/interfaces
-  export COMPOSER_PATH=$JUJU_REPOSITORY/layers
-}
+alias mybox='docker run --rm \
+              -ti  \
+              -h mybox.dasapp.co \
+              -v $HOME/.myjuju:/home/ubuntu/.local/share/juju \
+              -v $PWD:/home/ubuntu/pwd \
+              lazypower/charmbox:mybox'
+#              add729ae2fc2'
 
-alias jwork=jujuwork
-alias jhome=jujupersonal
-alias jreview=jujureview
-alias jkubes=jujukubes
 
-stop_juju_local()
-{
-  sudo service juju-db-charles-local stop
-  sudo service juju-agent-charles-local stop
-}
-
-start_juju_local()
-{
-  sudo service juju-db-charles-local start
-  sudo service juju-agent-charles-local start
-}
-
-alias jujustop=stop_juju_local
-alias jujustart=start_juju_local
