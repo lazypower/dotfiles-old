@@ -22,8 +22,9 @@ sudo apt install -y \
     htop \
     curl
 
-curl https://github.com/github/hub/releases/download/v2.2.8/hub-linux-amd64-2.2.8.tgz /tmp/hub.tgz
-tar xvfz /tmp/hub -C /tmp
-sudo install /tmp/*/hub /usr/local/bin/hub
+cd /tmp
+wget https://github.com/github/hub/releases/download/v2.2.8/hub-linux-amd64-2.2.8.tgz
+tar xvfz hub-linux-*.tgz -C /tmp
+sudo /tmp/*/install
 
 
