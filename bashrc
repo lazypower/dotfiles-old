@@ -87,35 +87,3 @@ if [ -f $HOME/.bash_exports ]; then
     . $HOME/.bash_exports
 fi
 
-if [ -d $HOME/.nvm ]; then
-	. $HOME/.nvm/nvm.sh
-fi
-
-if [ -d $HOME/.rbenv ]; then
- export PATH=$PATH:$HOME/.rbenv/bin
- eval "$(rbenv init -)"
-fi
-### Added by the Heroku Toolbelt
-# Check for which juju environment is loaded and execute based on contents
-if [ -f $HOME/.juju_repository_env ]; then
-
-    JEN=`cat $HOME/.juju_repository_env`
-
-    if [ $JEN = 'work' ]; then
-        jwork
-    fi
-    if [ $JEN = 'personal' ]; then
-        jhome
-    fi
-    if [ $JEN = 'review' ]; then
-        jreview
-    fi
-    if [ $JEN = 'kubes' ]; then
-        jkubes
-    fi
-
-fi
-[[ -s "/home/charles/.gvm/scripts/gvm" ]] && source "/home/charles/.gvm/scripts/gvm"
-
-export NVM_DIR="/home/charles/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
