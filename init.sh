@@ -29,3 +29,7 @@ tar xvfz hub-linux-*.tgz -C /tmp
 sudo /tmp/*/install
 
 
+# Make the dotfiles repo less annoying
+cd $HOME/.dotfiles
+git remote rm origin
+git remote add origin git@github.com/chuckbutler/dotfiles.git
