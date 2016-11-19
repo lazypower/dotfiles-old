@@ -87,3 +87,9 @@ if [ -f $HOME/.bash_exports ]; then
     . $HOME/.bash_exports
 fi
 
+if [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
+   source /usr/share/powerline/bindings/bash/powerline.sh
+fi
+
+
+export EDITOR=vim

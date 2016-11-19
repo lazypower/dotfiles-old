@@ -67,20 +67,15 @@ alias charmbox='docker run --rm \
               -ti  \
               -h charmbox.juju.solutions \
               --dns=8.8.8.8 \
-              -v $HOME/.juju-work:/home/ubuntu/.local/share/juju \
+              -v $HOME/work/.juju:/home/ubuntu/.local/share/juju \
               -v $HOME/.vim:/home/ubuntu/.vim \
               -v $HOME/.vimrc:/home/ubuntu/.vimrc \
+              -v $HOME/.githelpers:/home/ubuntu/.githelpers \
               -v $HOME/.gitconfig:/home/ubuntu/.gitconfig \
               -v $HOME/.go-cookies:/home/ubuntu/.go-cookies \
-              -v $HOME/projects/work/interfaces:/home/ubuntu/interfaces \
-              -v $HOME/projects/work/layers:/home/ubuntu/layers \
-              -v $HOME/projects/work/trusty:/home/ubuntu/trusty \
-              -v $HOME/projects/work/xenial:/home/ubuntu/xenial \
-              -v $HOME/projects/work/builds:/home/ubuntu/builds \
-              -v $HOME/projects/work/bundles:/home/ubuntu/bundles \
-              -v $HOME/projects/work:/home/ubuntu/work \
+              -v $HOME/work:/home/ubuntu/charms \
               -v $PWD:/home/ubuntu/pwd \
-              jujusolutions/charmbox:devel'
+              charmbox'
 
 alias mybox='docker run --rm \
               -ti  \
