@@ -1,0 +1,2 @@
+alias docker-clean='docker run --rm -e GRACE_PERIOD_SECONDS=86400 -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc spotify/docker-gc'
+

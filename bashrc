@@ -82,14 +82,17 @@ if ! shopt -oq posix; then
 fi
 
 
-# Load my custom exports
-if [ -f $HOME/.bash_exports ]; then
-    . $HOME/.bash_exports
-fi
-
 if [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
    source /usr/share/powerline/bindings/bash/powerline.sh
 fi
 
+# Shell hack, load each dotfile in exports and aliases to setup my funky
+# shell bindings.
 
-export EDITOR=vim
+for filename in $HOME/.dotfiles/exports/*.exports; do
+  . $filename
+done
+
+for filename in $HOME/.dotfiles/aliases/*.alias; do
+  . $filename
+done

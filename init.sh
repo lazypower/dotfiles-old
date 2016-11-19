@@ -1,10 +1,10 @@
 #!/bin/sh
-set +x
+set +e
 echo "#########################################"
 echo "Initialzing from assumed sctrach"
 echo "#########################################"
 
-sudo apt update && sudo apt install -yq git
+sudo apt update && sudo apt install -yq git 2>&1 /dev/null
 
 if [ ! -d $HOME/.dotfiles ]
 then
@@ -16,11 +16,12 @@ fi
 # Deploy preferences
 $HOME/.dotfiles/setup_symlinks.sh
 
-sudo apt install -y \
+sudo apt install -qq -y \
     vim \
     sysdig \
     htop \
-    curl
+    curl \
+    tree
 
 cd /tmp
 wget https://github.com/github/hub/releases/download/v2.2.8/hub-linux-amd64-2.2.8.tgz
