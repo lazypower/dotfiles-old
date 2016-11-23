@@ -1,0 +1,9 @@
+#The new dircolors have been installed to /home/charles/.dir_colors/dircolors.
+
+# Add "eval `dircolors /path/to/dircolorsdb`" in your shell 
+# configuration file (.bashrc, .zshrc, etc...) to use new dircolors.
+# In case of fish shell add the following to config.fish instead.
+# "eval (dircolors /path/to/dircolorsdb | head -n 1 | sed 's/^LS_COLORS=/set -x LS_COLORS /;s/;$//')"
+
+eval `dircolors $HOME/.dir_colors/dircolors`
+

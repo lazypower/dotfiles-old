@@ -64,3 +64,6 @@
 [submodule "dotvim/bundle/vim-jinja2"]
 	path = dotvim/bundle/vim-jinja2
 	url = https://github.com/Glench/Vim-Jinja2-Syntax.git
+[submodule "visuals/gnome-terminal-colors-solarized"]
+	path = visuals/gnome-terminal-colors-solarized
+	url = https://github.com/Anthony25/gnome-terminal-colors-solarized.git
