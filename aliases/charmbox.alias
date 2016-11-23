@@ -2,7 +2,7 @@ alias charmbox='docker run --rm \
               -ti  \
               -h charmbox.juju.solutions \
               --dns=8.8.8.8 \
-              -v $HOME/.local/share/juju:/home/ubuntu/.local/share/juju \
+              -v $HOME/Work/.juju:/home/ubuntu/.local/share/juju \
               -v $HOME/.vim:/home/ubuntu/.vim \
               -v $HOME/.vimrc:/home/ubuntu/.vimrc \
               -v $HOME/.githelpers:/home/ubuntu/.githelpers \
