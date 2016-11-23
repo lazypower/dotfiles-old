@@ -67,3 +67,9 @@
 [submodule "visuals/gnome-terminal-colors-solarized"]
 	path = visuals/gnome-terminal-colors-solarized
 	url = https://github.com/Anthony25/gnome-terminal-colors-solarized.git
+[submodule "dotvim/bundle/vim-airline-themes"]
+	path = dotvim/bundle/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes
+[submodule "dotvim/bundle/vim-colors-solarized"]
+	path = dotvim/bundle/vim-colors-solarized
+	url = git://github.com/altercation/vim-colors-solarized.git
