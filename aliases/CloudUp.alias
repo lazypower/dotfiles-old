@@ -1,0 +1,2 @@
+alias cloudup='acd_cli mount $HOME/Cloud'
+alias clouddown='acd_cli umount $HOME/Cloud'

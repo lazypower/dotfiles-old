@@ -1,7 +1,0 @@
-alias ezsnap='docker run --rm \
-              -h snapbox.juju.solutions \
-              --dns 8.8.8.8 \
-              -v $PWD:/snaps \
-              snapbox:onbuild'
-
-

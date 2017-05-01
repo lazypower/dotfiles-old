@@ -1,15 +1,13 @@
 alias charmbox='docker run --rm \
               -ti  \
-              -h charmbox.juju.solutions \
-              --dns=8.8.8.8 \
-              -v $HOME/Work/.juju:/home/ubuntu/.local/share/juju \
+              -v $HOME/.local/share/juju:/home/ubuntu/.local/share/juju \
               -v $HOME/.vim:/home/ubuntu/.vim \
               -v $HOME/.vimrc:/home/ubuntu/.vimrc \
               -v $HOME/.githelpers:/home/ubuntu/.githelpers \
               -v $HOME/.gitconfig:/home/ubuntu/.gitconfig \
               -v $HOME/.go-cookies:/home/ubuntu/.go-cookies \
-              -v $HOME/Work:/home/ubuntu/charms \
+              -v $HOME/work:/home/ubuntu/charms \
               -v $PWD:/home/ubuntu/pwd \
               jujusolutions/charmbox:latest'
 
-
+alias charmbox-refresh='docker pull jujusolutions/charmbox:latest'

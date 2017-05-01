@@ -74,7 +74,8 @@ set dir=~/.vimswap//,/var/tmp//,/tmp//,.
 syntax enable
 se t_Co=256
 set background=dark
-colorscheme jellybeans 
+<<<<<<< 6b5e8a7ba21cbbc8d23001922d499fed8a920d83
+colorscheme jellybeans
  ":set t_Co=256 " 256 colors
 
 
