@@ -42,3 +42,10 @@ if [[ "$1" = "mail" ]]; then
         ln -s $HOME/.dotfiles/mail/gpgrc $HOME/.gpgrc
     fi
 fi
+
+if [ ! -d $HOME/bin ]; then
+  mkdir -p $HOME/bin
+fi
+
+ln -s $HOME/.dotfiles/bin/backup $HOME/bin/backup
+

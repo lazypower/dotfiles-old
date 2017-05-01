@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Configure backup in $HOME/.dotfiles/backup-$hostname.sh
+. $HOME/.dotfiles/backup/backup-${HOSTNAME}.sh
+
+execute_backup
