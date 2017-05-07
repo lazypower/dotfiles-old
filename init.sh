@@ -18,9 +18,7 @@ $HOME/.dotfiles/setup_symlinks.sh
 
 sudo apt install -qq -y \
     vim \
-    sysdig \
     htop \
-    curl \
     tree
 
 cd /tmp
