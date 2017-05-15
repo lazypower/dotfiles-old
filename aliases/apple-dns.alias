@@ -1,0 +1,1 @@
+alias restart-apple-dns="sudo killall -HUP mDNSResponder"

@@ -12,15 +12,16 @@ call pathogen#infect()
 syntax on
 filetype plugin indent on
 
-
-" Store swap files in fixed location, not current directory.
-set dir=~/.vimswap//,/var/tmp//,/tmp//,.
-
-
+set noswapfile " dont use swapfile
+set nobackup   " dont create those annoying backup files, I live dangerously
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PREFERENCES
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+ set nocompatible
+ filetype off
+
+ filetype plugin indent on
  set ts=4
  set shiftwidth=4
  set smarttab
@@ -30,6 +31,25 @@ set dir=~/.vimswap//,/var/tmp//,/tmp//,.
  set colorcolumn=80
  set splitright
  set splitbelow
+ set encoding=utf-8
+ set autowrite
+ set autoread
+ set laststatus=2
+ set ruler
+
+ set backspace=indent,eol,start
+
+ au FocusLost * :wa " autocommand to save the file on losing focus
+
+ set fileformats=unix,dos,mac
+ set incsearch " show the match while typing
+ set hlsearch
+ set ignorecase " ignore case when searching
+ set smartcase " unless the search pattern contains uppercase chars
+
+ set nocursorline
+ set nocursorcolumn
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -103,4 +123,7 @@ colorscheme jellybeans
 
  " Stop the obnoxious folding behavior of vim-markdown
  let g:vim_markdown_folding_disabled=1
+
+ " Attempt markdown joy
+ au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/syntax/yaml.vim
 
