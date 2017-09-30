@@ -22,54 +22,12 @@
 [submodule "dotfiles/dot-vim/bundle/vim-surround"]
 	path = dotfiles/dot-vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "dotvim/bundle/vim-gitgutter"]
-	path = dotvim/bundle/vim-gitgutter
-	url = https://github.com/airblade/vim-gitgutter.git
-[submodule "dotvim/bundle/vim-trailing-whitespace"]
-	path = dotvim/bundle/vim-trailing-whitespace
-	url = https://github.com/bronson/vim-trailing-whitespace.git
-[submodule "dotvim/bundle/vim-fugitive"]
-	path = dotvim/bundle/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive.git
-[submodule "dotvim/bundle/syntastic"]
-	path = dotvim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
-[submodule "dotvim/bundle/supertab"]
-	path = dotvim/bundle/supertab
-	url = https://github.com/ervandew/supertab.git
 [submodule "dotvim/bundle/ctrlp.vim"]
 	path = dotvim/bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
-[submodule "dotvim/bundle/nerdtree"]
-	path = dotvim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
-[submodule "dotvim/bundle/vim-livedown"]
-	path = dotvim/bundle/vim-livedown
-	url = git://github.com/shime/vim-livedown.git
-[submodule "dotvim/bundle/vim-markdown"]
-	path = dotvim/bundle/vim-markdown
-	url = https://github.com/plasticboy/vim-markdown.git
-[submodule "dotvim/bundle/gist-vim"]
-	path = dotvim/bundle/gist-vim
-	url = https://github.com/mattn/gist-vim.git
-[submodule "dotvim/bundle/webapi-vim"]
-	path = dotvim/bundle/webapi-vim
-	url = https://github.com/mattn/webapi-vim.git
-[submodule "dotvim/bundle/vim-airline"]
-	path = dotvim/bundle/vim-airline
-	url = https://github.com/bling/vim-airline
-[submodule "dotvim/bundle/DirDiff.vim"]
-	path = dotvim/bundle/DirDiff.vim
-	url = https://github.com/vim-scripts/DirDiff.vim.git
-[submodule "dotvim/bundle/vim-jinja2"]
-	path = dotvim/bundle/vim-jinja2
-	url = https://github.com/Glench/Vim-Jinja2-Syntax.git
 [submodule "visuals/gnome-terminal-colors-solarized"]
 	path = visuals/gnome-terminal-colors-solarized
 	url = https://github.com/Anthony25/gnome-terminal-colors-solarized.git
-[submodule "dotvim/bundle/vim-airline-themes"]
-	path = dotvim/bundle/vim-airline-themes
-	url = https://github.com/vim-airline/vim-airline-themes
-[submodule "dotvim/bundle/vim-colors-solarized"]
-	path = dotvim/bundle/vim-colors-solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule "dotvim/bundle/Vundle.vim"]
+	path = dotvim/bundle/Vundle.vim
+	url = https://github.com/VundleVim/Vundle.vim.git
