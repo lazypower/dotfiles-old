@@ -26,23 +26,6 @@ if [ -f $HOME/.bashrc ]; then
 fi
 ln -s $HOME/.dotfiles/bashrc $HOME/.bashrc
 
-if [[ "$1" = "mail" ]]; then
-    echo "Setting up mail"
-    if [ -d $HOME/.imapfilter ]; then
-        mkdir -p $HOME/.imapfilter
-        ln -s $HOME/.dotfiles/mail/imapfilter $HOME/.imapfilter/config.lua
-    fi
-
-    if [ -f $HOME/.muttrc ]; then
-        rm $HOME/.muttrc
-    fi
-    ln -s $HOME/.dotfiles/mail/dotmuttrc $HOME/.muttrc
-
-    if [ ! -f $HOME/.gpgrc ]; then
-        ln -s $HOME/.dotfiles/mail/gpgrc $HOME/.gpgrc
-    fi
-fi
-
 if [ ! -d $HOME/bin ]; then
   mkdir -p $HOME/bin
 fi
