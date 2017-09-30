@@ -1,1 +1,5 @@
-alias open='xdg-open'
+unamestr=`uname`
+if [[ "$unamestr" != 'Darwin' ]]; then
+	alias open='xdg-open'
+fi
+
