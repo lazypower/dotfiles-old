@@ -1,0 +1,7 @@
+# Download and install go in /usr/local/go
+
+export GOROOT=/usr/local/go
+
+export GOPATH=$HOME/projects/go
+
+export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
