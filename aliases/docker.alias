@@ -1,6 +1,11 @@
 alias docker-clean='docker run --rm -e GRACE_PERIOD_SECONDS=86400 -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc spotify/docker-gc'
 alias docker-up='docker-machine start default; eval $(docker-machine env)'
 
+function gitsome(){
+    docker run -it --rm -v /etc/localtime:/etc/localtime:ro \
+    --name gitsome \
+    r.dasapp.io/gitsome
+}
 
 ## Container commands
 
@@ -8,7 +13,7 @@ function rainbowstream(){
     docker run -it --rm -v /etc/localtime:/etc/localtime:ro \
         -v $HOME/.rainbow_oauth:/root/.rainbow_oauth \
         -v $HOME/.rainbow_config.json:/root/.rainbow_config.json \
-        --name rainbowstream lazypower/rainbowstream
+        --name rainbowstream r.dasapp.io/rainbowstream
 }
 
 function screencloud(){
@@ -23,5 +28,7 @@ function virt-manager(){
     -v /tmp/.X11-unix/:/tmp/.X11-unix \
     -v $HOME/.Xauthority:/root/.Xauthority \
     -v $HOME/.config/dconf:/home/ubuntu/.config/dconf \
+    -v $HOME/.ssh/id_rsa:/home/ubuntu/.ssh/id_rsa \
+    -v $HOME/.ssh/known_hosts:/home/ubuntu/.ssh/known_hosts \
     --net=host lazypower/virt-manager
 }
