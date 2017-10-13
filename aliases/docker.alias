@@ -40,3 +40,15 @@ function mpsyt() {
     -e PULSE_SERVER=unix:$XDG_RUNTIME_DIR/pulse/native \
     r.dasapp.io/mpsyt:latest
 }
+
+function ytdl() {
+    if [ -z $1 ]; then
+        echo "Usage: ytdl http://youtube.com/somevid"
+        return
+    fi
+
+    docker run --rm -ti \
+    --read-only=true \
+    -v $HOME/Music/youtube-rip:/downloads \
+    r.dasapp.io/youtube-dl:latest -x --audio-format=mp3 $1
+}
