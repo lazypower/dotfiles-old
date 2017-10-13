@@ -32,3 +32,11 @@ function virt-manager(){
     -v $HOME/.ssh/known_hosts:/home/ubuntu/.ssh/known_hosts \
     --net=host lazypower/virt-manager
 }
+
+function mpsyt() {
+    docker run --rm -ti \
+    --read-only=true \
+    -v $XDG_RUNTIME_DIR/pulse:/run/user/1000/pulse:ro \
+    -e PULSE_SERVER=unix:$XDG_RUNTIME_DIR/pulse/native \
+    r.dasapp.io/mpsyt:latest
+}
