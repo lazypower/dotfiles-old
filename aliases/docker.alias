@@ -38,7 +38,7 @@ function mpsyt() {
     --read-only=true \
     -v $XDG_RUNTIME_DIR/pulse:/run/user/1000/pulse:ro \
     -e PULSE_SERVER=unix:$XDG_RUNTIME_DIR/pulse/native \
-    r.dasapp.io/mpsyt:latest
+    us.gcr.io/personal-1332/mpsyt:latest
 }
 
 function ytdl() {

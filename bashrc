@@ -97,6 +97,16 @@ for filename in $HOME/.dotfiles/aliases/*.alias; do
   . $filename
 done
 
+for filename in $HOME/.dotfiles/sources/*.sh; do
+  . $filename
+done
+
+
+for filename in $HOME/.dotfiles/secrets/*.secret; do
+  . $filename
+done
+
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/charles/google-cloud-sdk/path.bash.inc' ]; then source '/home/charles/google-cloud-sdk/path.bash.inc'; fi
 
