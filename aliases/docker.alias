@@ -4,7 +4,7 @@ alias docker-up='docker-machine start default; eval $(docker-machine env)'
 function gitsome(){
     docker run -it --rm -v /etc/localtime:/etc/localtime:ro \
     --name gitsome \
-    r.dasapp.io/gitsome
+    us.gcr.io/personal-1332/gitsome:latest
 }
 
 ## Container commands
@@ -13,7 +13,7 @@ function rainbowstream(){
     docker run -it --rm -v /etc/localtime:/etc/localtime:ro \
         -v $HOME/.rainbow_oauth:/root/.rainbow_oauth \
         -v $HOME/.rainbow_config.json:/root/.rainbow_config.json \
-        --name rainbowstream r.dasapp.io/rainbowstream
+        --name rainbowstream us.gcr.io/project-1332/rainbowstream
 }
 
 function screencloud(){
@@ -50,5 +50,17 @@ function ytdl() {
     docker run --rm -ti \
     --read-only=true \
     -v $HOME/Music/youtube-rip:/downloads \
-    r.dasapp.io/youtube-dl:latest -x --audio-format=mp3 $1
+    us.gcr.io/personal-1332/youtube-dl:latest -x --audio-format=mp3 $1
+}
+
+#function hugo() {
+#    docker run --rm -ti \
+#    -v $PWD:/site  -p 1313:1313 \
+#    us.gcr.io/personal-1332/hugo:latest $1
+#}
+
+function tootstream() {
+    docker run --rm -ti \
+    -v $HOME/.config/tootstream:/home/tootstream/.config/tootstream \
+    us.gcr.io/personal-1332/tootstream:latest
 }
