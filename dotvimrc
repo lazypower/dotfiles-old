@@ -66,6 +66,7 @@ Plugin 'ervandew/supertab'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'fatih/vim-go'
+Plugin 'modille/groovy.vim'
 
 call vundle#end()  
 
