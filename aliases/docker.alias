@@ -1,13 +1,8 @@
-alias docker-clean='docker run --rm -e GRACE_PERIOD_SECONDS=86400 -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc spotify/docker-gc'
-alias docker-up='docker-machine start default; eval $(docker-machine env)'
-
 function gitsome(){
     docker run -it --rm -v /etc/localtime:/etc/localtime:ro \
     --name gitsome \
     us.gcr.io/personal-1332/gitsome:latest
 }
-
-## Container commands
 
 function rainbowstream(){
     docker run -it --rm -v /etc/localtime:/etc/localtime:ro \
@@ -63,4 +58,21 @@ function tootstream() {
     docker run --rm -ti \
     -v $HOME/.config/tootstream:/home/tootstream/.config/tootstream \
     us.gcr.io/personal-1332/tootstream:latest
+}
+
+function weechat() {
+    docker run --rm -ti \
+    -v $HOME/.weechat:/home/weechat/.weechat \
+    us.gcr.io/personal-1332/weechat:latest
+}
+
+function mutt() {
+    docker run --rm -ti \
+    -e GMAIL="$GMAIL_USER" \
+    -e GMAIL_NAME="$GMAIL_NAME" \
+    -e GMAIL_FROM="$GMAIL_FROM" \
+    -e GMAIL_PASS="$GMAIL_PASSWORD" \
+    -v $HOME/.gnupg:/home/user/.gnupg \
+    -v $HOME/Downloads:/home/user/Downloads \
+    us.gcr.io/personal-1332/mutt:latest
 }
