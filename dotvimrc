@@ -67,6 +67,7 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'fatih/vim-go'
 Plugin 'modille/groovy.vim'
+Plugin 'JamshedVesuna/vim-markdown-preview'
 
 call vundle#end()  
 
@@ -145,3 +146,5 @@ colorscheme jellybeans
  " Attempt markdown joy
  au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/syntax/yaml.vim
 
+ " tell markdown preview generator to use grip
+ let vim_markdown_preview_github=1
